@@ -1,4 +1,5 @@
 #include <HardwareSerial.h>
+#include <stdbool.h>
 
 
 extern "C"
