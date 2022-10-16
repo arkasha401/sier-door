@@ -14,13 +14,17 @@ server_initialize(Server *server, unsigned long baudrate)
 }
 
 void
-server_update(Server *server)
+server_update(Server *server)   
+{
+    if (formatBool(usart_available())) 
     {
-    if (formatBool(usart_available())) {
         char temp = usart_read(); 
-        if(temp == *"\n") {
-           
-        } 
-        usart_read();        
-    }      
+        if (server->message_complete)
+        {
+            if(temp == *"\n")
+            {
+                server->message_complete = true;
+            }     
+        }      
+    }
 }

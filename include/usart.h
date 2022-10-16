@@ -12,7 +12,7 @@ int
 usart_println_str(const char *str);
 
  
-bool
+int
 usart_available();
 
 char
