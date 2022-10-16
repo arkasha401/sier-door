@@ -13,11 +13,10 @@ Lock lock;
 
 void setup() 
 {
-    // lock_initialize(&lock, PIN_BUTTON, 9600, PIN_SERVO);
     lock_initialize(&lock, PIN_BUTTON, 9600, PIN_SERVO);
 }
 
 void loop() 
 {
-   // lock_update(&lock);
+   lock_update(&lock);
 }

@@ -9,6 +9,7 @@ typedef struct Server_S
 {
     char *buffer;
     bool message_complete;
+    int char_pointer;
 } Server;
 
 void

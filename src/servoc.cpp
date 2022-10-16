@@ -1,7 +1,6 @@
 #include <Servo.h>
 
 extern Servo servo;
-
 extern "C"
 uint8_t
 servo_attach(int pin)
