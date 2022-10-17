@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "server.h"
 #include "usart.h"
 #include "stdbool.h"
@@ -22,15 +23,20 @@ server_update(Server *server)
         // server_process(server);
         server->message_complete = false;
     }
-
     if (usart_available()) 
     {
-        char temp = usart_read(); 
-        if(temp == '\n')
-        {
-            server->message_complete = true;
+        if(server->char_pointer != MAX_BUFFER_LENGHT)
+        { 
+            char temp = usart_read(); 
+            if(temp == '\n')
+            {
+                server->message_complete = true;
+            }
+            server->buffer[server->char_pointer] = temp;
+            server->char_pointer++;
         }
-        server->buffer[server->char_pointer] = temp;
-        server->char_pointer++;
+        printf("Buffer is overloaded");
+
     }
+
 }
