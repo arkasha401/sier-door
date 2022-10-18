@@ -3,6 +3,7 @@
 #define __SERVER_H__
 
 #include <stdbool.h>
+#include <command.h>
 #define MAX_BUFFER_LENGHT 256
 
 typedef struct Server_S
@@ -10,22 +11,11 @@ typedef struct Server_S
     char *buffer;
     bool message_complete;
     int char_pointer;
+    Command command;
 } Server;
 
-    
-typedef enum 
-{
-    Open, 
-    Close
-} Method; 
 
-
-typedef struct Command_S
-{
-    int value;
-    Method method;
-} Command;
-
+void command_initialize(Command *command); 
 
 void
 server_initialize(Server *server, unsigned long baudrate);
