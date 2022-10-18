@@ -45,5 +45,9 @@ void
 server_process(Server *server)
 {
     char buf[server->char_pointer];
-    mjson_get_string(server->buffer, server->char_pointer,  "$[1]", buf, sizeof(buf));
+    mjson_get_string(server->buffer, server->char_pointer, "$.method", buf, sizeof(buf));
+    if (!strcmp(buf,"Open") || !strcmp(buf, "Close")) 
+    {
+    }
+
 }

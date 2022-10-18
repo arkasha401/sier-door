@@ -1,7 +1,7 @@
 #ifndef __SERVOC_H__
 #define __SERVOC_H__
 
-#include "stdbool.h"
+#include <stdbool.h>
 #include "stdint.h"
 
 uint8_t

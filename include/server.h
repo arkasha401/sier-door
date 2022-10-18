@@ -12,7 +12,7 @@ typedef struct Server_S
     int char_pointer;
 } Server;
 
-
+    
 typedef enum 
 {
     Open, 
