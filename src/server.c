@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "server.h"
 #include "usart.h"
-#include "stdbool.h"
+#include "mjson.h"
 
 
 void
@@ -20,7 +21,7 @@ server_update(Server *server)
 {
     if (server->message_complete)
     {
-        // server_process(server);
+        server_process(server);
         server->message_complete = false;
     }
     if (usart_available()) 
@@ -31,12 +32,18 @@ server_update(Server *server)
             if(temp == '\n')
             {
                 server->message_complete = true;
+                server->buffer[server->char_pointer] = 0; // '\0'
             }
-            server->buffer[server->char_pointer] = temp;
-            server->char_pointer++;
+            server->buffer[server->char_pointer++] = temp;
         }
         printf("Buffer is overloaded");
-
     }
+}
 
+
+void
+server_process(Server *server)
+{
+    char buf[server->char_pointer];
+    mjson_get_string(server->buffer, server->char_pointer,  "$[1]", buf, sizeof(buf));
 }

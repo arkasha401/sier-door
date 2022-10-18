@@ -4,7 +4,7 @@
 
 extern "C" 
 {
-    #include <pins.h>
+    #include "pins.h"
     #include "lock.h" 
 }
 
@@ -13,7 +13,7 @@ Lock lock;
 
 void setup() 
 {
-    lock_initialize(&lock, PIN_BUTTON, 9600, PIN_SERVO);
+   lock_initialize(&lock, PIN_BUTTON, 9600, PIN_SERVO);
 }
 
 void loop() 

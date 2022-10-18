@@ -12,11 +12,28 @@ typedef struct Server_S
     int char_pointer;
 } Server;
 
+
+typedef enum 
+{
+    Open, 
+    Close
+} Method; 
+
+
+typedef struct Command_S
+{
+    int value;
+    Method method;
+} Command;
+
+
 void
 server_initialize(Server *server, unsigned long baudrate);
 
 void
 server_update(Server *server);
 
+void
+server_process(Server *server);
 
-#endif /* __SERVER_H__ */ 
+#endif /* __SERVER_H__ */
