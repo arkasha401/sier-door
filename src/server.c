@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include "server.h"
 #include "usart.h"
-#include "command.h"
+#include "libs/command.h"
 #include "mjson.h"
 
 
@@ -61,7 +61,7 @@ server_process(Server *server)
     mjson_get_string(server->buffer, server->char_pointer, "$.method", buf, sizeof(buf));
     mjson_get_number(server->buffer, server->char_pointer, "$.value", &val);
     int value = (int) val;
-    if ((strcmp(buf,"Open") == 0 || !strcmp(buf, "Close") == 0) && value > 0) 
+    if ((strcmp(buf,"Open") == 0 || strcmp(buf, "Close") == 0) && value > 0) 
     {
         server->command.value = value;
         if(strcmp(buf, "Open") == 0)

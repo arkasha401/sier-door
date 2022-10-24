@@ -1,6 +1,11 @@
 #ifndef __COMMAND_H__
 #define __COMMAND_H__
 
+/*#define OPEN_POSITION
+
+
+*/
+
 typedef enum 
 {
     Open, 
@@ -16,5 +21,4 @@ typedef struct Command_S
 
 void
 command_initialize(Command *command);
-
 #endif

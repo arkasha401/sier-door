@@ -1,4 +1,4 @@
-#include "command.h"
+#include "libs/command.h"
 
 void
 command_initialize(Command *command)

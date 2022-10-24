@@ -3,7 +3,7 @@
 #define __SERVER_H__
 
 #include <stdbool.h>
-#include <command.h>
+#include "libs/command.h"
 #define MAX_BUFFER_LENGHT 256
 
 typedef struct Server_S
