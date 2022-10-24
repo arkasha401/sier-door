@@ -10,10 +10,10 @@
             "includePath": [
                 "/home/arkasha/Documents/sier-door/include",
                 "/home/arkasha/Documents/sier-door/src",
+                "/home/arkasha/Documents/sier-door/lib/mjson",
                 "/home/arkasha/Documents/sier-door/.pio/libdeps/nanoatmega328/Servo/src",
                 "/home/arkasha/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "/home/arkasha/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
-                "/home/arkasha/Documents/sier-door/lib/mjson",
                 "/home/arkasha/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                 "/home/arkasha/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                 "/home/arkasha/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
@@ -26,10 +26,10 @@
                 "path": [
                     "/home/arkasha/Documents/sier-door/include",
                     "/home/arkasha/Documents/sier-door/src",
+                    "/home/arkasha/Documents/sier-door/lib/mjson",
                     "/home/arkasha/Documents/sier-door/.pio/libdeps/nanoatmega328/Servo/src",
                     "/home/arkasha/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "/home/arkasha/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
-                    "/home/arkasha/Documents/sier-door/lib/mjson",
                     "/home/arkasha/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
                     "/home/arkasha/.platformio/packages/framework-arduino-avr/libraries/HID/src",
                     "/home/arkasha/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
