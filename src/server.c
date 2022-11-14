@@ -4,18 +4,9 @@
 #include <stdbool.h>
 #include "server.h"
 #include "usart.h"
-#include "libs/command.h"
+#include "methods/method.h"
 #include "mjson.h"
 
-
-
-
-void
-command_initialize(Command *command)
-{
-    command->value = 0;
-    command->method = None;
-}
 
 void
 server_initialize(Server *server, unsigned long baudrate)
