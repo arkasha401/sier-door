@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "server.h"
+#include "methods/close.h"
+#include "methods/open.h"
 #include "usart.h"
 #include "methods/method.h"
 #include "mjson.h"
@@ -57,11 +59,15 @@ server_process(Server *server)
         server->command.value = value;
         if(strcmp(buf, "Open") == 0)
         {
-            server->command.method = Open;
+            servo_open_pos(&(server->command));
+            //sender();
+            //server->command.method = Open;
+
         } 
         else if(strcmp(buf, "Close") == 0)
         {
-            server->command.method = Close;
+            servo_close_pos(&(server->command));
+            //server->command.method = Close;
         }
         else 
         {
