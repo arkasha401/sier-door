@@ -16,4 +16,4 @@ void
 lock_update(Lock *lock)
 {
     server_update(&(lock->server));
-}
+}   

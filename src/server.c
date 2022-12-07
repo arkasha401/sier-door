@@ -60,6 +60,7 @@ server_process(Server *server)
         if(strcmp(buf, "Open") == 0)
         {
             servo_open_pos(&(server->command));
+
             //sender();
             //server->command.method = Open;
 
