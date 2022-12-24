@@ -22,13 +22,14 @@ server_initialize(Server *server, unsigned long baudrate)
 }
 
 
-void
+Method
 server_update(Server *server)   
 {
     if (server->message_complete)
     {
-        server_process(server);
+        
         server->message_complete = false;
+        return server_process(server);
     }
     if (usart_available()) 
     {
@@ -38,20 +39,23 @@ server_update(Server *server)
             if(temp == '\n')
             {
                 server->message_complete = true;
-                server->buffer[server->char_pointer] = 0; // '\0'
+                server->buffer[server->char_pointer] = 0;
+                 // '\0'
             }
             server->buffer[server->char_pointer++] = temp;
         }
         printf("Buffer is overloaded");
     }
+    return None;
 }
 
 
-void
+Method
 server_process(Server *server)
 {
     char buf[MAX_BUFFER_LENGHT];
     char mes_buf[MAX_VAL];
+    Method my_method;
     double val;
     Method method;
     mjson_get_string(server->buffer, server->char_pointer, "$.method", buf, sizeof(buf));
@@ -62,29 +66,18 @@ server_process(Server *server)
         server->command.value = value;
         if(strcmp(buf, "Open") == 0)
         {
-            servo_open_pos(&(server->command));
-            if (status_check(&(server->command), method, PIN_SERVO))
-            {
-                mjson_snprintf(mes_buf, sizeof(mes_buf), "{%Q: %D, %Q: %D, %Q: %Q}","Value", &(server->command.value), "Method", &(server->command.method), "flag", "true");
-            } 
-            mjson_snprintf(mes_buf, sizeof(mes_buf), "{%Q: %D, %Q: %D, %Q: %Q}","Value", &(server->command.value), "Method", &(server->command.method), "flag", "false");
+            my_method = Open;
+            return my_method;
+        
         } 
         else if(strcmp(buf, "Close") == 0)
         {
-            servo_close_pos(&(server->command));
-            if (status_check(&(server->command), method, PIN_SERVO)) {
-                mjson_snprintf(mes_buf, sizeof(mes_buf), "{%Q: %D, %Q: %D, %Q: %Q}","Value", &(server->command.value), "Method", &(server->command.method), "flag", "true");
-            } 
-                mjson_snprintf(mes_buf, sizeof(mes_buf), "{%Q: %D, %Q: %D, %Q: %Q}","Value", &(server->command.value), "Method", &(server->command.method), "flag", "false");
-
+            my_method = Close;
+            return my_method;
+    
             //server->command.method = Close;
         }
-        else 
-        {
-            server->command.method = None;
-            mjson_snprintf(mes_buf, sizeof(mes_buf), "{%Q: %D, %Q: %D, %Q: %Q}","Value", &(server->command.value), "Method", &(server->command.method), "flag", "false");
-
-        }
-    }
-
+        return None;
+    };
+    return None;
 }

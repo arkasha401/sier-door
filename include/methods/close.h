@@ -6,6 +6,6 @@
 
 #define CLOSE_POSITION 0
 
-void
+bool
 servo_close_pos(Command *command);
 #endif

@@ -1,9 +1,11 @@
 #include "methods/close.h"
+#include "stdbool.h"
 
 
-void servo_close_pos(Command *command)
+bool servo_close_pos(Command *command)
 {
     command->value = CLOSE_POSITION;
-    command->method = Close; 
+    command->method = Close;
+    return true;
 }
 
