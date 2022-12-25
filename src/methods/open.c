@@ -1,9 +1,20 @@
 #include "methods/open.h"
 #include "methods/method.h"
+#include <servoc.h>
+#include "pins.h"
+#include "Arduino.h"
+#include "usart.h"
+#include "stdio.h"
 
-void servo_open_pos(Command *command)
+
+bool 
+method_open(Command *command)
 {
-    command->value = OPEN_POSITION;
-    command->method = Open; 
+    command->value = 100;
+    command->method = Open;
+    printf("%d", 1);
+    digitalWrite(13, HIGH);
+    write(OPEN_POSITION);
+    return true;
 }
 

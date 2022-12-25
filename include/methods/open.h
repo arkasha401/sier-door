@@ -2,9 +2,9 @@
 #define __OPEN__H
 
 #include "methods/method.h"
-#define OPEN_POSITION 95
+#define OPEN_POSITION 100
 
 /*#define */
-void
-servo_open_pos(Command *command); 
+bool
+method_open(Command *command); 
 #endif

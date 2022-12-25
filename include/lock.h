@@ -17,4 +17,5 @@ lock_initialize(Lock *lock, uint8_t pin_button, unsigned long baudrate, int pin_
 void
 lock_update(Lock *lock);
 
+
 #endif /* __LOCK_H__ */ 

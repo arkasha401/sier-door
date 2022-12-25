@@ -13,7 +13,9 @@ Lock lock;
 
 void setup() 
 {
-   lock_initialize(&lock, PIN_BUTTON, 9600, PIN_SERVO);
+   lock_initialize(&lock, PIN_BUTTON, 115200, PIN_SERVO);
+   pinMode(13, OUTPUT);
+   digitalWrite(13,HIGH);
 }
 
 void loop() 

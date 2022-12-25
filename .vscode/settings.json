@@ -3,6 +3,7 @@
     "files.associations": {
         "stdbool.h": "c",
         "command.h": "c",
-        "mjson.h": "c"
+        "mjson.h": "c",
+        "servo.h": "c"
     }
 }

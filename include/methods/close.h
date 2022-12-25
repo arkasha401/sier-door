@@ -7,5 +7,5 @@
 #define CLOSE_POSITION 0
 
 bool
-servo_close_pos(Command *command);
+method_close(Command *command);
 #endif
