@@ -51,7 +51,7 @@ server_update(Server *server)
             }
             server->buffer[server->char_pointer++] = temp;
         }
-        printf("Buffer is overloaded");
+        
     }
     return None;
 }
@@ -75,8 +75,8 @@ server_process(Server *server)
 
         char buf[MAX_BUFFER_LENGHT];
         Method my_method;
-        double val;
-        int res = mjson_get_string(server->buffer, server->char_pointer, "$.method", buf, sizeof(buf));
+        //double val;
+        //int res = mjson_get_string(server->buffer, server->char_pointer, "$.method", buf, sizeof(buf));
         if(strcmp(buf, "open") == 0)
         {
             my_method = Open;

@@ -3,12 +3,14 @@
 
 #include "server.h"
 #include "stdint.h"
+#include "stdbool.h"
 
 typedef struct Lock_S 
 {
     uint8_t pin_button;
-    uint8_t state;
-    Server server;    
+    Server server;   
+    bool cb_state; 
+    bool is_lock_opened;
 } Lock;
 
 void
